@@ -10,9 +10,16 @@ function Hero() {
         fun projects, coding activities and real-world applications.
       </p>
 
-      <button className="mt-8 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold">
-        Enroll Now
-      </button>
+      <button
+  onClick={() => {
+    document.getElementById("registration").scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+  className="mt-8 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold"
+>
+  Enroll Now
+</button>
     </section>
   );
 }

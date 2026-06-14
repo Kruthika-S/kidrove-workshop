@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function FAQ() {
+  const [open, setOpen] = useState(null);
+
   const faqs = [
     {
       question: "Do students need prior coding knowledge?",
@@ -10,7 +14,7 @@ function FAQ() {
     },
     {
       question: "Will participants get certificates?",
-      answer: "Yes, after successful completion."
+      answer: "Yes, certificates will be provided."
     }
   ];
 
@@ -21,12 +25,24 @@ function FAQ() {
       </h2>
 
       {faqs.map((faq, index) => (
-        <div key={index} className="mb-4 border p-4 rounded-lg">
-          <h3 className="font-semibold">
+        <div
+          key={index}
+          className="border rounded-lg mb-3"
+        >
+          <button
+            onClick={() =>
+              setOpen(open === index ? null : index)
+            }
+            className="w-full text-left p-4 font-semibold"
+          >
             {faq.question}
-          </h3>
+          </button>
 
-          <p>{faq.answer}</p>
+          {open === index && (
+            <div className="p-4 border-t">
+              {faq.answer}
+            </div>
+          )}
         </div>
       ))}
     </section>
